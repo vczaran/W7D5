@@ -19,6 +19,7 @@ class SubsController < ApplicationController
 
     def create
         @sub = Sub.new(sub_params)
+        @sub.moderator_id = current_user.id
 
         if @sub.save
             redirect_to subs_url
@@ -43,6 +44,6 @@ class SubsController < ApplicationController
     private
 
     def sub_params
-        params.require(:sub).permit(:title, :description, :moderator)
+        params.require(:sub).permit(:title, :description)
     end
 end

@@ -57,7 +57,6 @@ end
 
 has_many :subs,
     foreign_key: :moderator_id,
-    class_name: :Sub,
-    inverse_of: :moderator
+    class_name: :Sub
 
 end
