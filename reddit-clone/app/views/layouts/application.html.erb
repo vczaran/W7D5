@@ -23,6 +23,18 @@
   
   <% end %>
 
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+    <%= error %>
+    <% end %>
+  <% end %>
+
+    <% if flash[:messages] %>
+    <% flash[:messages].each do |message| %>
+    <%= message %>
+    <% end %>
+  <% end %>
+
   <body>
     <%= yield %>
   </body>
