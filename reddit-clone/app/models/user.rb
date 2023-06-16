@@ -11,7 +11,7 @@ attr_reader :password
 def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
 
-    if user @@ user.is_password?(password)
+    if user && user.is_password?(password)
         user
     else
         nil
