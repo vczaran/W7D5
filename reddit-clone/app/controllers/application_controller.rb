@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     #CHRRLLL
 
     def current_user
-        @current_user = User.find_by(session_token: session[:session_token])
+        @current_user ||= User.find_by(session_token: session[:session_token])
     end
 
     def logged_in?
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     def require_logged_out
-        redirect_to users_url if logged_in?
+        redirect_to user_url(current_user.id) if logged_in?
     end
 
 end
